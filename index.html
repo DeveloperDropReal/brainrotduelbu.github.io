@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b13">
+  <title>Brainrot Duel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Brainrot Duel home"><span class="brand-mark">B</span><span>Brainrot <b>Duel</b></span></a>
+    <nav><a href="#cases">Кейсы</a><a href="#inventory">Инвентарь</a><a href="#promo">Промокод</a></nav>
+    <div class="user-area">
+      <div class="balance"><span class="coin">B</span><strong id="balance">0</strong></div>
+      <button class="button button-outline" id="authButton">Войти</button>
+      <button class="avatar-button" id="profileButton" title="Профиль">👤</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> BRAINROT CASE OPENING</div>
+        <h1>Открывай кейсы.<br><span>Лови свой дроп.</span></h1>
+        <p>Испытай удачу в Brainrot Duel — собирай редких персонажей и пополняй коллекцию.</p>
+        <a class="button button-primary" href="#cases">Выбрать кейс <span>↘</span></a>
+      </div>
+      <div class="hero-art" aria-label="Brainrot Duel artwork">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="hero-crystal">◆</div><div class="hero-b">B</div>
+        <div class="floating-chip chip-one">✦ SECRET</div><div class="floating-chip chip-two">+150 B</div>
+      </div>
+    </section>
+
+    <section class="section" id="cases">
+      <div class="section-heading"><div><div class="eyebrow">ТВОЯ УДАЧА</div><h2>Выбери кейс</h2></div><span class="section-note">3 кейса доступны</span></div>
+      <div class="case-grid">
+        <article class="case-card free-card">
+          <div class="case-top"><span class="tag tag-free">БЕСПЛАТНО</span><span class="case-number">01</span></div>
+          <div class="case-visual free-visual"><div class="case-glow"></div><div class="case-box">🎁</div><span class="spark s1">✦</span><span class="spark s2">✧</span></div>
+          <h3>Free Case</h3><p>Бесплатный кейс с шансом на секретный дроп.</p>
+          <div class="case-meta"><span>Стоимость</span><strong>0 B</strong></div>
+          <button class="button button-primary case-open" data-case="free">Открыть кейс</button>
+          <div class="cooldown" id="freeCooldown">Доступен раз в 24 часа</div>
+          <details class="drop-details"><summary>Посмотреть содержимое</summary><div class="drop-list" id="drops-free"></div></details>
+        </article>
+        <article class="case-card lucky-card">
+          <div class="case-top"><span class="tag tag-lucky">LUCKY</span><span class="case-number">02</span></div>
+          <div class="case-visual lucky-visual"><div class="case-glow"></div><div class="case-box">🧊</div><span class="spark s1">✦</span><span class="spark s2">✧</span></div>
+          <h3>Lucky Block Case</h3><p>Открой блок и узнай, какая награда внутри.</p>
+          <div class="case-meta"><span>Стоимость</span><strong>10 B</strong></div>
+          <button class="button button-primary case-open" data-case="lucky">Открыть за 10 B</button>
+          <details class="drop-details"><summary>Посмотреть содержимое</summary><div class="drop-list" id="drops-lucky"></div></details>
+        </article>
+        <article class="case-card secret-card">
+          <div class="case-top"><span class="tag tag-secret">SECRET</span><span class="case-number">03</span></div>
+          <div class="case-visual secret-visual"><div class="case-glow"></div><div class="case-box">👾</div><span class="spark s1">✦</span><span class="spark s2">✧</span></div>
+          <h3>Secret Brainrots case</h3><p>Редкие и необычные Brainrot-награды.</p>
+          <div class="case-meta"><span>Стоимость</span><strong>10 B</strong></div>
+          <button class="button button-primary case-open" data-case="secret">Открыть за 10 B</button>
+          <details class="drop-details"><summary>Посмотреть содержимое</summary><div class="drop-list" id="drops-secret"></div></details>
+        </article>
+      </div>
+    </section>
+
+    <section class="section inventory-section" id="inventory">
+      <div class="section-heading"><div><div class="eyebrow">ТВОИ НАГРАДЫ</div><h2>Инвентарь</h2></div><span class="section-note" id="inventoryCount">0 предметов</span></div>
+      <div class="inventory-grid" id="inventoryGrid"><div class="empty-state"><span>▧</span><b>Пока здесь пусто</b><small>Открой кейс, чтобы получить первую награду.</small></div></div>
+    </section>
+
+    <section class="promo-section section" id="promo">
+      <div><div class="eyebrow">БОНУС ДЛЯ ИГРОКОВ</div><h2>Есть промокод?</h2><p>Активируй код и получи кристаллы на баланс.</p></div>
+      <form id="promoForm" class="promo-form"><input id="promoInput" autocomplete="off" placeholder="Введи промокод" aria-label="Промокод"><button class="button button-primary">Активировать</button><small id="promoMessage"></small></form>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">B</span><span>Brainrot <b>Duel</b></span></a><span>© 2026 Brainrot Duel. Fan-made project.</span></footer>
+
+  <div class="modal-backdrop" id="authModal" hidden>
+    <div class="modal">
+      <button class="modal-close" data-close="authModal">×</button>
+      <div class="eyebrow">АККАУНТ ИГРОКА</div><h2 id="authTitle">Войти в аккаунт</h2>
+      <div class="auth-tabs"><button class="active" data-auth-mode="login">Вход</button><button data-auth-mode="register">Регистрация</button></div>
+      <form id="authForm"><label>Имя пользователя<input id="username" minlength="3" maxlength="18" required placeholder="Например, Player123"></label><label>Пароль<input id="password" type="password" minlength="4" required placeholder="Минимум 4 символа"></label><button class="button button-primary full">Продолжить</button><small id="authMessage"></small></form>
+      <p class="modal-footnote">Демо-версия: данные аккаунта хранятся в браузере на этом устройстве.</p>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="resultModal" hidden>
+    <div class="modal result-modal"><button class="modal-close" data-close="resultModal">×</button><div class="eyebrow">ТВОЙ ДРОП</div><div class="result-icon" id="resultIcon">💎</div><h2 id="resultName">Награда</h2><div class="result-rarity" id="resultRarity">SECRET</div><p id="resultDescription"></p><button class="button button-primary full" data-close="resultModal">Отлично!</button></div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
